@@ -1,0 +1,16 @@
+{
+  "name": "node-subdown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio-without-node-native": "^1.0.0-rc.2",
+    "lodash": "^4.17.14",
+    "request": "^2.88.0"
+  }
+}
