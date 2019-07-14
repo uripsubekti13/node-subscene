@@ -1,6 +1,6 @@
 const cheerio = require("cheerio-without-node-native");
 const _ = require("lodash");
-const { getHtmlFromSearch } = require("./html");
+const { getHtmlFromSearch } = require("./util");
 const config = require("./config");
 
 async function search(query) {

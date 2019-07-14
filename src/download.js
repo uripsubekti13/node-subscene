@@ -1,4 +1,4 @@
-const { getHtml } = require("./html");
+const { getHtml } = require("./util");
 const cheerio = require("cheerio-without-node-native");
 const config = require("./config");
 

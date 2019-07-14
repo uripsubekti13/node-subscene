@@ -1,5 +1,5 @@
 const cheerio = require("cheerio-without-node-native");
-const { getHtml, getHtmlFromSearch } = require("./html");
+const { getHtml, getHtmlFromSearch } = require("./util");
 const config = require("./config");
 
 async function getPopular() {

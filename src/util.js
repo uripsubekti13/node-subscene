@@ -12,6 +12,17 @@ async function getHtml(url) {
   });
 }
 
+async function getJSON(url) {
+  return new Promise((resolve, reject) => {
+    request.get(url, (err, res, body) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(JSON.parse(body));
+    });
+  });
+}
+
 async function getHtmlFromSearch(query) {
   const url = `${config.baseUrl}/subtitles/searchbytitle`;
   const options = {
@@ -30,4 +41,4 @@ async function getHtmlFromSearch(query) {
   });
 }
 
-module.exports = { getHtml, getHtmlFromSearch };
+module.exports = { getHtml, getHtmlFromSearch, getJSON };
