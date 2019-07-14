@@ -6,8 +6,18 @@ async function getPopular() {
   try {
     const html = await getHtml(config.baseUrl);
     const $ = cheerio.load(html);
-    const popular = await getFilmFromBox(".popular-films", $);
-    return popular;
+    const promises = [];
+    $(".popular-films > .box").each(async (index, e) => {
+      promises.push(getFilmFromBox(e, $));
+    });
+    const result = await Promise.all(promises);
+    let popular = [];
+    let tv = [];
+    result.map((v, i) => {
+      if (i === 0) popular = v;
+      if (i === 1) tv = v;
+    });
+    return { popular, tv };
   } catch (error) {
     throw error;
   }
@@ -51,4 +61,5 @@ async function getFilmFromBox(querySelector, $) {
   }
 }
 
+// getPopular().then(console.log);
 module.exports = { getPopular };
